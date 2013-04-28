@@ -1,0 +1,50 @@
+<!doctype html>
+<html ng-app>
+    <head>
+        <script src="angular.js"></script>
+        <script type="text/javascript">
+            function getData($scope, $http) {
+                $http.get('data.json').success(function(data) {
+                    $scope.users = data.results;
+                });
+            };
+
+        </script>
+    </head>
+    <body ng-controller="getData">
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Forname</th>
+                <th>Surname</th>
+                <th>Telephone Number</th>
+                <th>Mobile Number</th>
+                <th>Active Status</th>
+                <th>Job Title</th>
+                <th>Telephone Number</th>
+                <th>Email</th>
+                <th>Alternative Email</th>
+                <th>Organization Id</th>
+                <th>Organization</th>
+                <th>Social Accounts</th>
+            </tr>
+            <tr ng-repeat="users in users">
+                <td>{{users.id}}</td>
+                <td>{{users.username}}</td>
+                <td>{{users.forename}}</td>
+                <td>{{users.passwordHash}}</td>
+                <td>{{users.mobileNumber}}</td>
+                <td>{{users.surname}}</td>
+                <td>{{users.activeStatus}}</td>
+                <td>{{users.jobTitle}}</td>
+                <td>{{users.telephoneNumber}}</td>
+                <td>{{users.email}}</td>
+                <td>{{users.alternativeEmail}}</td>
+                <td>{{users.organizationId}}</td>
+                <td>{{users.organization}}</td>
+                <td>{{users.socialAccounts}}</td>
+            </tr>
+        </table>
+    </body>
+</html>
